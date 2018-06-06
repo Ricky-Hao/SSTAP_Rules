@@ -1,6 +1,11 @@
 import socket
+import os
 import requests
 import time
+
+scripts_path = os.path.abspath(__file__)
+rules_path = os.path.join(os.path.dirname(os.path.dirname(scripts_path)), 'rules')
+file_path = os.path.join(rules_path, 'Discord.rules')
 
 header = '=Discord,Discord,0,0,1,0,1,2,{0}\n'.format(time.strftime('%Y-%m-%d'))
 url = '{0}{1}.discord.gg'
@@ -16,7 +21,7 @@ for area in ['hongkong', 'japan']:
         except socket.gaierror as err:
             pass
 
-with open('../rules/Discord.rules', 'w+') as f:
+with open(file_path, 'w+') as f:
     f.write(header+"/32\n".join(ip_list)+'/32')
 
 
