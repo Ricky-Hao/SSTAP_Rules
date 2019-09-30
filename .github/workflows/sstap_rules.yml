@@ -1,4 +1,4 @@
-name: Python application
+name: SSTAP Rules Builder
 
 on: [push]
 
@@ -19,14 +19,14 @@ jobs:
         pip install requests
     - name: Run Scripts
       run: |
-        mkdir SSTAP_Rules/rules
+        mkdir ~/SSTAP_Rules/rules
         python scripts/Discord.py
         python scripts/CHNRoute.py
     - name: Release
       uses: Ricky-Hao/action-release@master
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        ASSET_PATH: SSTAP_Rules/rules
+        ASSET_PATH: ~/SSTAP_Rules/rules
         TAG_NAME: latest
         NAME: latest
         
