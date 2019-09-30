@@ -24,11 +24,13 @@ jobs:
         mkdir rules
         python scripts/Discord.py
         python scripts/CHNRoute.py
+        echo "##[set-env name=BODY;]$(date +%Y%m%d)"
+
     - name: Release
       uses: Ricky-Hao/action-release@master
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
         ASSET_PATH: rules
-        TAG_NAME: latest
-        NAME: latest
+        TAG_NAME: Latest
+        NAME: Latest
         
