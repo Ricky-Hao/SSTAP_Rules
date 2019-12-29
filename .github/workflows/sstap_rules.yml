@@ -31,7 +31,7 @@ jobs:
     - name: Release
       uses: Ricky-Hao/action-release@master
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         ASSET_PATH: rules
         TAG_NAME: Latest
         NAME: Latest
